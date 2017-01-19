@@ -1,0 +1,16 @@
+{
+  "name": "nchatapp",
+  "version": "1.0.0",
+  "description": "NChatApp",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "socket.io": "^1.3.6"
+  },
+  "devDependencies": {},
+  "author": "Nagaraju Adepu",
+  "license": "ISC"
+}
