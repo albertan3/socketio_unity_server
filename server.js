@@ -1,8 +1,15 @@
-var io 				= require('socket.io')(4567);
-var shortId 		= require('shortid');
-
+var express = require('express');
+var io = require('socket.io'); //(4567);
+var shortId = require('shortid');
+var path = require('path');
+var PORT = process.env.PORT || 4567;
+var INDEX = path.join(__dirname, 'index.html');
 
 var clients			= [];
+
+var server = express()
+				.use((req, res)=> res.sendFile(INDEX))
+				.listen(PORT, () =>console.log('Listening on ${PORT}'));
 
 io.on('connection', function (socket) {
 	
@@ -69,6 +76,8 @@ io.on('connection', function (socket) {
 
 
 });
+
+setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
 
 
 console.log("------- server is running -------");
