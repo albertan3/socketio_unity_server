@@ -8,6 +8,7 @@ const clients			= [];
 
 const PORT = process.env.PORT || 3000;
 const INDEX = path.join(__dirname, 'index.html');
+var clientIpAddress="";
 
 const server = express()
   .use((req, res) => res.sendFile(INDEX) )
@@ -16,8 +17,12 @@ const server = express()
 const io = socketIO(server);
 
 io.on('connection', (socket) => {
+  
+
+   clientIpAddress = socket.request.socket.remoteAddress;
 
   console.log('Client connected');
+
   socket.on('disconnect', () => console.log('Client disconnected'));
 
 
@@ -86,6 +91,8 @@ io.on('connection', (socket) => {
 	}); //move
 //setInterval(() => io.emit('time', new Date().toTimeString()+" :client: "+ clients.length), 1000);
 
+setInterval(() => io.emit('time', new Date().toTimeString()+"ip: "+socket.request.socket.remoteAddress+ " :client: "+ clients.length), 1000);
+
 });
 
-setInterval(() => io.emit('time', new Date().toTimeString()+" :client: "+ clients.length), 1000);
+//setInterval(() => io.emit('time', new Date().toTimeString()+"ip: "+socket.request.socket.remoteAddress+ " :client: "+ clients.length), 1000);
