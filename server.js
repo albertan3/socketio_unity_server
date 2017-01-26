@@ -6,7 +6,7 @@ const path = require('path');
 const shortId 		= require('shortid');
 const clients			= [];
 
-const PORT = process.env.PORT || 9352;
+const PORT = process.env.PORT || 30535;
 const INDEX = path.join(__dirname, 'index.html');
 var clientIpAddress="";
 
