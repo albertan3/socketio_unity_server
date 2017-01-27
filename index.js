@@ -1,9 +1,3 @@
-/// <reference path="typings/node/node.d.ts"/>
-
-/*
-* Author : TeYoU
-* pudding [dot] pearl [dot] tea [at] gmail [dot] com
-**/
 var express = require('express');
 var app = express();
 var http = require('http').createServer(app);

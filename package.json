@@ -1,5 +1,5 @@
 {
-  "name": "Socket_Server",
+  "name": "vendingpython",
   "version": "0.0.1",
   "description": "POC for socket io with Unity",
   "main": "index.js",
@@ -7,13 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "rudy"
+    "albert"
   ],
   "repository": {
-    "type": "git",
-    "url": "https://github.com/teyou/Unity_POC_Socket.git"
+    "type": "git"
   },
-  "author": "rudy",
+  "author": "albert",
   "license": "",
   "dependencies": {
     "express": "^4.10.2",
