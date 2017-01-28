@@ -36,20 +36,6 @@
       var socket = io();      
       var _r = 0, _g = 0, _b = 0;
       
-
-function loginSumit(){
-
-      var textlogin = $("#login_text").val();
-
-          alert("login:"+ textlogin);
-
-           var texter = { logintext: textlogin);
-
-          socket.emit('logintext', texter); 
-
-    }//login
-
-
       var syncInputVal = function(msg){
         
         $.each(msg,function(key,value){          
@@ -66,8 +52,6 @@ function loginSumit(){
       });
 
 
-
-      
       $(function(){
         
         var changeRGB = function(){  
@@ -84,6 +68,21 @@ function loginSumit(){
       
         changeRGB();
       });
+
+//text
+
+function loginSumit(){
+
+      var textlogin = $("#login_text").val();
+
+          alert("login:"+ textlogin);
+
+           var texter = { logintext: textlogin);
+
+          socket.emit('logintext', texter); 
+
+    }//login
+
     </script>
   </body>
 
