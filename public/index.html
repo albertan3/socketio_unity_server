@@ -4,23 +4,31 @@
   <head>
     <title>Socket.IO Color selector</title>
     <style>
+
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial; padding: 10px; }
       .palette{width:200px;height:200px;}
+
     </style>
   </head>
   
   <body>
-    R: <input type="range" min="0" " max="255" value="0" data-id="r">
+    R: <input type="range" min="0" " max="255" value="0" data-id="r"/>
     <br>
-    G: <input type="range" min="0" " max="255" value="0" data-id="g">
+    G: <input type="range" min="0" " max="255" value="0" data-id="g"/>
     <br>
-    B: <input type="range" min="0" " max="255" value="0" data-id="b">
+    B: <input type="range" min="0" " max="255" value="0" data-id="b"/>
     <br>
     <br>
     <div class="palette"></div>
     <br>
+
     <span>Drag the slider to change the color</span>
+
+
+<input type="text" id = "login_text"/>
+<a href="" onclick ="" >sumit</a>
+
     <script src="js/socket.io-1.2.0.js"></script>
     <script src="js/jquery-1.11.1.js"></script>
     <script>
@@ -41,6 +49,11 @@
         $(".palette").css('backgroundColor', 'rgb('+ msg.r + ',' + msg.g + ',' + msg.b + ')');
         syncInputVal(msg); 
       });
+
+
+      function loginSumit(){
+          alert("login:"+ $("login_text").text);
+    }//login
       
       $(function(){
         

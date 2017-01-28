@@ -24,13 +24,12 @@ io.on('connection', function(socket){
     io.emit('rgb',msg);
   });//rgb 
 
-
    socket.on('logintext', function(msg){
     //console.log('message: ' + msg);
     if(msg){
       console.log('logintext: (' + msg.logintext+")");
     }
-    
+
     io.emit('logintext',msg);
   });//rgb 
   
