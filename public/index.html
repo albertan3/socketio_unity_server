@@ -26,8 +26,9 @@
     <span>Drag the slider to change the color</span>
 
 
-<input type="text" id = "login_text"/>
-<a href="" onclick ="" >sumit</a>
+<input type="text" id="login_text" value="hi there" />
+<input type="button" onclick ="loginSumit();" value="sumit" /> 
+<!--login-->
 
     <script src="js/socket.io-1.2.0.js"></script>
     <script src="js/jquery-1.11.1.js"></script>
@@ -35,6 +36,20 @@
       var socket = io();      
       var _r = 0, _g = 0, _b = 0;
       
+
+function loginSumit(){
+
+      var textlogin = $("#login_text").val();
+
+          alert("login:"+ textlogin);
+
+           var texter = { logintext: textlogin);
+
+          socket.emit('logintext', texter); 
+
+    }//login
+
+
       var syncInputVal = function(msg){
         
         $.each(msg,function(key,value){          
@@ -51,9 +66,7 @@
       });
 
 
-      function loginSumit(){
-          alert("login:"+ $("login_text").text);
-    }//login
+
       
       $(function(){
         
