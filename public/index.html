@@ -71,8 +71,9 @@
 
 //text
 
-$("#login_text").change(function() {
-  alert( "Handler for .change() called." );
+$("#login_text").on('input', function() {
+    alert('hi there');
+    // do your stuff
 });
 
 function loginSumit(){
