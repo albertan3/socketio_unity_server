@@ -71,11 +71,15 @@
 
 //text
 
+$("#login_text").change(function() {
+  alert( "Handler for .change() called." );
+});
+
 function loginSumit(){
 
       var textlogin = $("#login_text").val();
 
-          alert("login:"+ textlogin);
+         // alert("login:"+ textlogin);
 
            var texter = { logintext: textlogin};
 
