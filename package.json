@@ -1,8 +1,11 @@
 {
-  "name": "vendingpython",
+  "name": "testalbert",
   "version": "0.0.1",
   "description": "POC for socket io with Unity",
   "main": "index.js",
+  "engines": {
+    "node": "6.5.0"
+  },
   "scripts": {
   
     "start": "node index.js",
