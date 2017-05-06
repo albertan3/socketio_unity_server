@@ -1,5 +1,5 @@
 var getUserMedia = require('getusermedia');
-
+//bundle it http://browserify.org/#install 
 getUserMedia({ video: true, audio: false }, function (err, stream) {
   if (err) return console.error(err);
 
