@@ -3,6 +3,8 @@ var app = express();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 var PORT = process.env.PORT || 3000;
+var firstUserRTC_data ="";
+var secUserRTC_data ="";
 
 app.use(express.static(__dirname + '/public'));
 
@@ -20,22 +22,29 @@ io.on('connection', function(socket){
 //socket.broadcast.emit('hi');
   //Color
   socket.on('sent_init_signal', function(msg){
+		firstUserRTC_data = msg.sent_init_signal;
     //console.log('message: ' + msg);
     if(msg){
     //  console.log('sent_init_signal: (' + msg.sent_init_signal + ")");
     }
     io.emit('sent_init_signal',msg);
-  });//rgb
+  });//rgb\
+//get first user data to auto fill
+		socket.on('get_firstUserRTC_data', function(msg){
 
+       io.emit('get_firstUserRTC_data', firstUserRTC_data);
+
+
+		});
 
 
    socket.on('sent_second_recieving', function(msg){
     //console.log('message: ' + msg);
     if(msg){
 
-      console.log('sent_second_recieving: (' + msg.sent_second_recieving+")");
+      console.log('sent_second_recieving: (' + msg+")");
     }
-
+     secUserRTC_data = msg.sent_second_recieving;
     io.emit('sent_second_recieving',msg);
   });//second
 

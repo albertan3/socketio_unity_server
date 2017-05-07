@@ -43,54 +43,37 @@ socket.on('updatechat', function(username, data){
 
 socket.on('adduser', function(username){
 
-if(myuser_id==""){
+      if(myuser_id==""){
 
-  myuser_id = username;
+        myuser_id = username;
 
-  console.log("myuser_id: "+ myuser_id);
-}
+        console.log("myuser_id: "+ myuser_id);
+      }//if
+
+      if(myuser_id == "sec_user" || myuser_id == "morethan3"){
+
+        socket.emit('get_firstUserRTC_data',"get_firstUserRTC_data");
+      }
 
 });
 
 $(function(){
 
   socket.emit('get_avail_username');
-/*
-  if(availUsers["first_user"]=="avail"){
-       myuser_id="first_user";
-       availUsers["first_user"]="false";
-    socket.emit('adduser', "first_user");
 
-    console.log("myuser_id:"+myuser_id);
-  }else if(availUsers["sec_user"]=="avail"){
 
-    myuser_id="sec_user";
-    availUsers["sec_user"]="false";
-  socket.emit('adduser', "sec_user");
-  console.log("myuser_id:"+myuser_id);
-  }else{
-        myuser_id ="morethan3";
-  socket.emit('adduser', "morethan3");
-  console.log("myuser_id:"+myuser_id);
+});
 
-  }
-*/
-  var changeRGB = function(){
+socket.on('get_firstUserRTC_data', function(data){
+    document.getElementById('otherId').value = data;
 
-    //console.log(color);
-    socket.emit('sent_init_signal', "get available usernames");
-  };
-/*
-  $("input[type=range]").on('change',function(){
-    var theId = $(this).data('id');
-    window["_" + theId] = $(this).val();
-    changeRGB();
-  });
-*/
-//  changeRGB();
 });
 
 //text
+
+//if my id is second get first persons data
+
+//if first person send data
 
 $("#login_text").on('input', function() {
       loginSumit();

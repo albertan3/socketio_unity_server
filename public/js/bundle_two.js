@@ -6669,6 +6669,9 @@ var getUserMedia = require('getusermedia');
 var socket = io();
 var secondSend =false;
 //bundle it http://browserify.org/#install  browserify video_control.js -o bundle.js
+var firstUserRTC_data ="";
+
+
 getUserMedia({ video: true, audio: false }, function (err, stream) {
   if (err) return console.error(err);
 
@@ -6689,6 +6692,7 @@ getUserMedia({ video: true, audio: false }, function (err, stream) {
       socket.emit('sent_second_recieving', {'sent_second_recieving': JSON.stringify(data)});
 
     }else{
+
       socket.emit('sent_init_signal', {'sent_init_signal': JSON.stringify(data)});
     }
 
